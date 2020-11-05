@@ -93,9 +93,12 @@ public class MatchService {
 
     private String setMatchType(String matchType) {
         return switch (matchType) {
-            case "qualifier-1/16" -> "qualifier-1/8";
-            case "qualifier-1/8" -> "qualifier-1/4";
-            default -> null;
+            case "qualifier-1/16":
+                return "qualifier-1/8";
+            case "qualifier-1/8":
+                return "qualifier-1/4";
+            default:
+                return null;
         };
     }
 
