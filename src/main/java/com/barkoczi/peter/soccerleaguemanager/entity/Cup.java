@@ -14,15 +14,19 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "team")
-public class Team {
+@Table(name = "cup")
+public class Cup {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String name;
+
+    private String date;
+    private String matchTime;
+    private String qualifierType;
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
@@ -31,20 +35,7 @@ public class Team {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Location location;
 
-    @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "teams")
-    private List<Player> players;
-
-    @PreRemove
-    private void removeTeamsFromMatches() {
-        for (Player player : players) {
-            player.getTeams().remove(this);
-        }
-    }
-
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
-    @JsonIgnore
-    @ManyToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, mappedBy = "cup", orphanRemoval = true)
     private List<Match> matches = new ArrayList<>();
 
 }
