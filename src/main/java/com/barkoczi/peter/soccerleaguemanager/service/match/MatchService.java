@@ -92,7 +92,7 @@ public class MatchService {
     }
 
     private String setMatchType(String matchType) {
-        return switch (matchType) {
+        switch (matchType) {
             case "qualifier-1/16":
                 return "qualifier-1/8";
             case "qualifier-1/8":
