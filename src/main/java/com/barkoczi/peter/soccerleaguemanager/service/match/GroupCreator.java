@@ -220,13 +220,27 @@ public class GroupCreator {
 
         for (String day : gameDays) {
             switch (day) {
-                case "Hétfő" -> dayOfWeeks.add(DayOfWeek.MONDAY);
-                case "Kedd" -> dayOfWeeks.add(DayOfWeek.TUESDAY);
-                case "Szerda" -> dayOfWeeks.add(DayOfWeek.WEDNESDAY);
-                case "Csütörtök" -> dayOfWeeks.add(DayOfWeek.THURSDAY);
-                case "Péntek" -> dayOfWeeks.add(DayOfWeek.FRIDAY);
-                case "Szombat" -> dayOfWeeks.add(DayOfWeek.SATURDAY);
-                case "Vasárnap" -> dayOfWeeks.add(DayOfWeek.SUNDAY);
+                case "Hétfő":
+                    dayOfWeeks.add(DayOfWeek.MONDAY);
+                    break;
+                case "Kedd":
+                    dayOfWeeks.add(DayOfWeek.TUESDAY);
+                    break;
+                case "Szerda":
+                    dayOfWeeks.add(DayOfWeek.WEDNESDAY);
+                    break;
+                case "Csütörtök":
+                    dayOfWeeks.add(DayOfWeek.THURSDAY);
+                    break;
+                case "Péntek":
+                    dayOfWeeks.add(DayOfWeek.FRIDAY);
+                    break;
+                case "Szombat":
+                    dayOfWeeks.add(DayOfWeek.SATURDAY);
+                    break;
+                case "Vasárnap":
+                    dayOfWeeks.add(DayOfWeek.SUNDAY);
+                    break;
             }
         }
         return dayOfWeeks;
